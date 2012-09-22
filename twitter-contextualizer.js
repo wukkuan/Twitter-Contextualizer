@@ -3,7 +3,7 @@
 // @namespace   http://williamblasko.com
 // @description Keep context when clicking "view new tweets"
 // @include     /^https?://twitter\.com/.*$/
-// @version     1
+// @version     1.1
 // ==/UserScript==
 
 (function() {
