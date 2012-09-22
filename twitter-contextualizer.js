@@ -8,15 +8,18 @@
 
 (function() {
     var streamContainer     = $(".stream-container"),
-        firstTweetContainer = $(".tweet:first").parent();
+        firstTweetContainer = $(".tweet:first").parent(),
+        newTweetsClicked    = false;
 
     $("body").ajaxComplete(function(event, xmlHttpRequest, ajaxOptions) {
-        if (ajaxOptions.url.indexOf("/i/resolve.json") !== -1) {
+        if (newTweetsClicked && ajaxOptions.url.indexOf("/i/resolve.json") !== -1) {
+            newTweetsClicked = false;
             var center = $(firstTweetContainer).offset().top;
             var height = $(firstTweetContainer).height();
             var bottom = center + height;
             var winHeight = $(window).height();
             var newPos = bottom-winHeight;
+
             $('html, body').animate({
               scrollTop: newPos
             }, 500);
@@ -28,5 +31,6 @@
         firstTweetContainer.css({
             backgroundColor: "lightgrey"
         });
+        newTweetsClicked = true;
     });
 })();

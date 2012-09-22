@@ -17,9 +17,9 @@ This plugin can be installed via [Userscripts.org](https://userscripts.org/) by 
 ### Bookmarklet
 This script can be used as a bookmarklet as well, but keep in mind you'll have to click it each time you load the [twitter.com](https://twitter.com). Just copy and paste the following code into a bookmark's URL.
 
-    javascript:(function(){var e=$(".stream-container"),t=$(".tweet:first").parent();$("body").ajaxComplete(function(e,n,r){if(r.url.indexOf("/i/resolve.json")!==-1){var i=$(t).offset().top,s=$(t).height(),o=i+s,u=$(window).height(),a=o-u;$("html, body").animate({scrollTop:a},500)}}),e.delegate(".new-tweets-bar:parent","click",function(e){t=$(".tweet:first").parent(),t.css({backgroundColor:"lightgrey"})})})();)
+    javascript:(function(){var e=$(".stream-container"),t=$(".tweet:first").parent(),n=!1;$("body").ajaxComplete(function(e,r,i){if(n&&i.url.indexOf("/i/resolve.json")!==-1){n=!1;var s=$(t).offset().top,o=$(t).height(),u=s+o,a=$(window).height(),f=u-a;$("html, body").animate({scrollTop:f},500)}}),e.delegate(".new-tweets-bar:parent","click",function(e){t=$(".tweet:first").parent(),t.css({backgroundColor:"lightgrey"}),n=!0})})();
 
-
+    
 Issues
 ------
 
@@ -31,7 +31,7 @@ Twitter - [@wukkuan](https://twitter.com/wukkuan)
 
 License
 -------
-All of AMD Module Editor is licensed under the MIT license.
+All of Twitter Contextualizer is licensed under the MIT license.
 
 Copyright (c) 2012 William Blasko <williamblasko@gmail.com>
 
