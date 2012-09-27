@@ -17,7 +17,7 @@ This plugin can be installed via [Userscripts.org](https://userscripts.org/) by 
 ### Bookmarklet
 This script can be used as a bookmarklet as well, but keep in mind you'll have to click it each time you load the [twitter.com](https://twitter.com). Just copy and paste the following code into a bookmark's URL.
 
-    javascript:(function(){var e=$(".stream-container"),t=$(".tweet:first").parent(),n=!1;$("body").ajaxComplete(function(e,r,i){if(n&&i.url.indexOf("/i/resolve.json")!==-1){n=!1;var s=$(t).offset().top,o=$(t).height(),u=s+o,a=$(window).height(),f=u-a;$("html, body").animate({scrollTop:f},500)}}),e.delegate(".new-tweets-bar:parent","click",function(e){t=$(".tweet:first").parent(),t.css({backgroundColor:"lightgrey"}),n=!0})})();
+    javascript:(function(){$(function(){var e=$(".stream-container"),t=$(".tweet:first").parent(),n=!1;$("body").ajaxComplete(function(e,r,i){if(n&&i.url.indexOf("/i/resolve.json")!==-1){n=!1;var s=$(t).offset().top,o=$(t).height(),u=s+o,a=$(window).height(),f=u-a;$("html, body").animate({scrollTop:f},500)}}),e.delegate(".new-tweets-bar:parent","click",function(e){t=$(".tweet:first").parent(),t.css({backgroundColor:"lightgrey"}),n=!0})})})();
 
 Alternatively, you can use the `build-bookmarklet.sh` script to generate the above code. This requires that you have [UglifyJS](https://github.com/mishoo/UglifyJS/) installed. If you have Node.js and NPM, just run `npm install -g uglifyjs`.
 
